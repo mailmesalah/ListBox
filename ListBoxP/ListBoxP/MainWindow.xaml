@@ -1,0 +1,92 @@
+﻿<Window x:Class="ListBoxP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListBoxP"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="669.737" Width="875">
+    <Grid Margin="0,2,0,0">
+
+        <ListBox x:Name="listBoxData" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" Width="556" Height="540">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="280" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle Height="20" Width="20" Stroke="Black" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{Binding Path=TagColor}"/>
+                            </Rectangle.Fill>
+
+                        </Rectangle>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="{Binding ItemID}" HorizontalAlignment="Left" FontFamily="Segoe Condensed" FontSize="14" />
+                            <StackPanel Grid.Row="1" HorizontalAlignment="Left" Orientation="Horizontal">
+                                <TextBlock  Text="{Binding ItemDepartmentName}" HorizontalAlignment="Left" FontFamily="Segoe Condensed" FontSize="14" />
+                                <TextBlock  Text=" " HorizontalAlignment="Left" FontFamily="Segoe Condensed" FontSize="14" />
+                                <TextBlock  Text="{Binding SubDepartmentName}" HorizontalAlignment="Left" FontFamily="Segoe Condensed" FontSize="14" />
+                                <TextBlock  Text="*" HorizontalAlignment="Left" FontFamily="Segoe Condensed" FontSize="14" />
+                                <TextBlock  Text="{Binding SizeName}" HorizontalAlignment="Left" FontFamily="Segoe Condensed" FontSize="14" />
+
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="{Binding CouponID}" HorizontalAlignment="Left" FontFamily="Segoe Condensed" FontSize="14" />
+                            <TextBlock Grid.Row="1" Text="{Binding DiscountDescription}" HorizontalAlignment="Left"  FontFamily="Segoe Condensed" FontSize="14" />
+                        </Grid>
+
+                        <Grid Grid.Column="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="{Binding ItemCoupon, StringFormat={}{0:C}}" HorizontalAlignment="Right" FontFamily="Segoe Condensed" FontSize="14" />
+                            <TextBlock Grid.Row="1" Text="{Binding ItemDiscount, StringFormat={}{0:C}}" HorizontalAlignment="Right" FontFamily="Segoe Condensed" FontSize="14" />
+                            
+                        </Grid>
+
+                        <Grid Grid.Column="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="{Binding TaxRate, StringFormat={}{0:F2}%}" HorizontalAlignment="Right" FontFamily="Segoe Condensed" FontSize="14" />
+                            <TextBlock Grid.Row="1" Text="{Binding ItemTax, StringFormat={}{0:C}}" HorizontalAlignment="Right" FontFamily="Segoe Condensed" FontSize="14" />
+                        </Grid>
+
+                        <Grid Grid.Column="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="{Binding ItemExt, StringFormat={}{0:C}}" HorizontalAlignment="Right" FontFamily="Segoe Condensed" FontSize="14" />
+                            <TextBlock Grid.Row="1" Text="{Binding ItemTotal, StringFormat={}{0:C} }" HorizontalAlignment="Right" FontFamily="Segoe Condensed" FontSize="14" Foreground="#FF007E00" />
+                        </Grid>
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+    </Grid>
+</Window>
